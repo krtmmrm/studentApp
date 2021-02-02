@@ -7,8 +7,8 @@
         </ion-toolbar>
       </ion-header>
     <div class="flex w-full flex-col overflow-auto">
-      <div class="flex w-full flex-row flex-wrap justify-around mt-2">
-        <ion-card class="w-2/5">
+      <div>
+        <ion-card >
           <router-link :to="{name:'Courses'}">
             <ion-card-header>
               <ion-icon :icon="libraryOutline" color="primary" size="large"></ion-icon>
@@ -19,7 +19,7 @@
             </ion-card-content>
           </router-link>
         </ion-card>
-        <ion-card class="w-2/5">
+        <ion-card >
           <router-link :to="{name:'Seminars'}">
             <ion-card-header>
               <ion-icon :icon="easelOutline" color="primary" size="large"></ion-icon>
@@ -30,7 +30,7 @@
             </ion-card-content>
           </router-link>
         </ion-card>
-        <ion-card class="w-2/5">
+        <ion-card >
           <router-link :to="{name:'Projects'}">
             <ion-card-header>
               <ion-icon :icon="constructOutline" color="primary" size="large"></ion-icon>
@@ -41,7 +41,7 @@
             </ion-card-content>
           </router-link>
         </ion-card>
-        <ion-card class="w-2/5">
+        <ion-card >
           <router-link :to="{name:'Exams'}">
             <ion-card-header>
               <ion-icon :icon="documentsOutline" color="primary" size="large"></ion-icon>
