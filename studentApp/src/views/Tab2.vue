@@ -55,21 +55,38 @@
       </div>
     </div>
     </ion-content>
+    <div>
+      <ion-fab @click="isOpenNewTask = true" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon :icon="addOutline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-modal :is-open="isOpenNewTask" :backdrop-dismiss="false">
+          <new-event @closeModal="isOpenNewTask = false"></new-event>   
+      </ion-modal>
+    </div>
   </ion-page>
 </template>
 
 <script lang="ts">
+import {ref} from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard,IonCardHeader,IonIcon,IonCardContent,IonCardTitle,
-IonCardSubtitle} from '@ionic/vue';
-import { clipboard, documentsOutline, libraryOutline, constructOutline, easelOutline } from 'ionicons/icons'; 
+IonCardSubtitle, IonFab, IonFabButton, IonModal} from '@ionic/vue';
+import {documentsOutline, libraryOutline, constructOutline, easelOutline, addOutline} from 'ionicons/icons'; 
+import NewEvent from '../components/NewEvent.vue'
 
 export default  {
   name: 'Tab2',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonCard,IonCardHeader,IonIcon,IonCardContent,IonCardTitle,
-IonCardSubtitle},
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage,
+                IonCard,IonCardHeader,IonIcon,IonCardContent,IonCardTitle,
+                IonCardSubtitle, IonFab, IonFabButton, IonModal, 
+                NewEvent
+              },
   setup(){
+    const isOpenNewTask = ref(false);
     return {
-      clipboard, documentsOutline, libraryOutline, constructOutline, easelOutline
+      documentsOutline, libraryOutline, constructOutline, easelOutline, addOutline,
+      isOpenNewTask
     }
   }
 } 
