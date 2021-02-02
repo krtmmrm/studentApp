@@ -9,7 +9,7 @@
         class="cursor-pointer" @click="$emit('close-modal')">
           <ion-icon :icon="close" class="text-3xl"></ion-icon>
       </ion-fab>
-       <Form class="flex flex-col justify-center h-full">
+       <Form @submit="addTask()" class="flex flex-col justify-center h-full">
 
            <div>
                <ion-item>
@@ -83,6 +83,8 @@ import { IonPage,IonFab,IonIcon,IonItem,IonInput,IonText,IonDatetime,IonTextarea
 IonLabel, IonButton, IonSelect,IonSelectOption, IonHeader, IonToolbar, IonTitle } from '@ionic/vue';
 import {close,calendarOutline, folderOpenOutline, clipboardOutline, createOutline} from 'ionicons/icons';
 import { Form, Field, ErrorMessage } from 'vee-validate';
+import firebase from '@/firebase.ts';
+const db = firebase.firestore();
 export default defineComponent ({
     components:{
         IonPage, IonHeader, IonToolbar, IonTitle,  IonFab, IonIcon,IonItem,IonInput,IonText,IonDatetime,IonTextarea,
@@ -100,9 +102,32 @@ export default defineComponent ({
             }
             return true;
         }
+        function addTask() {
+            
+            db.collection('events')
+              .add({
+                  task: task.value,
+                  note: note.value,
+                  dueDate: dueDate.value,
+                  category: category.value,
+                  done: false
+              }) 
+              .then(() => {
+                  task.value = "";
+                  dueDate.value = "";
+                  note.value = "";
+                  category.value = "";
+                  this.$emit('close-modal');
+                  console.log('Event successfully added !');
+              })
+              .catch((error) => {
+                  console.log("Error writing event: ",error);
+              }) 
+        }
         return {
             close, isRequired, task, dueDate, note, category,
-            folderOpenOutline, calendarOutline, clipboardOutline, createOutline
+            folderOpenOutline, calendarOutline, clipboardOutline, createOutline,
+            addTask
         }
     }
 })
