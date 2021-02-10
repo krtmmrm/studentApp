@@ -2,7 +2,7 @@
   <ion-page>
     <ion-content>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="primary">
           <ion-title>Viata de Student</ion-title>
         </ion-toolbar>
       </ion-header>
