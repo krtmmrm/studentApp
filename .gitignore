@@ -1,6 +1,7 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
-src/firebase.ts
+studentApp/src/firebase.ts
+studentApp/assets/*
 
 *~
 *.sw[mnpcod]
