@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@capacitor/core": "2.4.6",
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/vue": "^5.5.0",
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
@@ -21,6 +23,7 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vee-validate": "^4.1.13",
     "vue": "^3.0.0-0",
+    "vue-functional-calendar": "^2.9.1",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0"
   },
@@ -39,9 +42,13 @@
     "@vue/compiler-sfc": "^3.0.0-0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
+    "deepmerge": "^4.2.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
+    "sass": "^1.32.7",
+    "sass-loader": "^11.0.1",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-vuetify": "~2.1.0",
     "vue-jest": "^5.0.0-0"
   },
   "description": "An Ionic project"
